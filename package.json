@@ -1,9 +1,13 @@
 {
   "name": "fhi-realtime-db-lib",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "lib/index.js",
   "types": "lib",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rusliabdulgani/realtimedb-lib.git"
+  },
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts",
     "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'tests/**/*.ts'",

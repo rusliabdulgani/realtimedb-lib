@@ -1,3 +1,6 @@
 import { FHISocketIO } from "./socketio.module";
-export default FHISocketIO;
+import { Server, Socket } from 'socket.io';
+import { DefaultEventsMap } from 'socket.io/dist/typed-events';
+export { FHISocketIO };
+export type { Socket, Server, DefaultEventsMap };
 //# sourceMappingURL=index.d.ts.map
