@@ -1,7 +1,11 @@
-type ReturnData = {
-  description?: String
-  data?: any
-  isError?: boolean
+import { createClient } from "redis"
+
+interface WrapperOptions {
+  adapter?: {
+    redisServer?: string
+  }
 }
 
-export { ReturnData }
+type RedisClientType = ReturnType<typeof createClient>
+
+export { WrapperOptions, RedisClientType }

@@ -1,13 +1,12 @@
-import { DefaultEventsMap } from 'socket.io/dist/typed-events';
-import { Server, Socket } from 'socket.io';
-declare class FHISocketIO {
-    server: any;
-    io: Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>;
-    socket: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any> | undefined;
-    error: any;
-    constructor(server: any);
-    listenConnection(io: Server): Promise<Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any> | undefined>;
-    handleConnection(): Promise<void>;
+import { WrapperOptions } from '@interfaces';
+declare class SocketIOServerWrapper {
+    private io;
+    private redisClient;
+    constructor(server: any, options: WrapperOptions);
+    initRedisStreamAdapter(redisServer: string): Promise<void>;
+    listen(event: any, handler: (msg: string) => void): void;
+    onStreamChange(streamName: string, callback: (data: any) => void): void;
+    insertToRedisStream(streamName: string, data: any): void;
 }
-export { FHISocketIO };
+export default SocketIOServerWrapper;
 //# sourceMappingURL=socketio.module.d.ts.map

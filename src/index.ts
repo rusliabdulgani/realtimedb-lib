@@ -1,6 +1,3 @@
-import { FHISocketIO } from "./socketio.module";
-import { Server, Socket } from 'socket.io'
-import { DefaultEventsMap } from 'socket.io/dist/typed-events'
+import SocketIOServerWrapper from "./socketio.module";
 
-export { FHISocketIO }
-export type { Socket, Server, DefaultEventsMap }
+export default SocketIOServerWrapper

@@ -1,7 +1,9 @@
-type ReturnData = {
-    description?: String;
-    data?: any;
-    isError?: boolean;
-};
-export { ReturnData };
+import { createClient } from "redis";
+interface WrapperOptions {
+    adapter?: {
+        redisServer?: string;
+    };
+}
+type RedisClientType = ReturnType<typeof createClient>;
+export { WrapperOptions, RedisClientType };
 //# sourceMappingURL=global.type.d.ts.map
