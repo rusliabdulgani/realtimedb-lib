@@ -11,7 +11,7 @@ import {
 } from '@interfaces';
 
 class SocketIOServerWrapper {
-  private io: Server<
+  io: Server<
     ClientToServerEvents,
     ServerToClientEvents,
     InterServerEvents,
@@ -54,6 +54,11 @@ class SocketIOServerWrapper {
         callback(message)
       }
     })
+  }
+
+  async readAllStream(streamName: string) {
+    const streamData = await this.redisClient.xRange(streamName, '-', '+');
+    return streamData.map((id, fields) => ({ id, message: fields }));
   }
 
   insertToRedisStream(streamName: string, data: any) {
